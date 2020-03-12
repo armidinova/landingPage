@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="section-top">
+        <div>
+            <img src="{% static '/media/images/bg_image.jpg' %}" class="img-fluid section-top-img">
+        </div>
+    </div>
+    {% include 'product_item.html' %}
+    <div class="section section-delivery">
+        <div>
+            <h3>Free shipping</h3>
+        </div>
+    </div>
+{% endblock %}

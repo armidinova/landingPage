@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+    <title>Title</title>
+</head>
+<body>
+    <div class="general-container">
+         <div class="container top-container">
+             <div class="row">
+                 <div class="col-lg-8 offset-2">
+                     <h1 class="top-h1">Добро пожаловать на наш сайт<br>
+                     Введите свой e-mail, чтобы получать оповещения</h1>
+                        <form class="form-inline text-center" action="" method="post">{% csrf_token %}
+                        <div class="form-group">
+                            <label>Ваше имя:
+                            <input class="form-control" type="text" name="{{ form.name.name }}"></label>
+                        </div>
+                        <div class="form-group">
+                            <label>Ваш e-mail:
+                            <input class="form-control" type="email" name="{{ form.email.name }}"></label>
+                        </div>
+                        <button class="btn btn-primary btn-brown" type="submit">Отправить</button>
+                        </form>
+                 </div>
+            </div>
+        </div>
+
+
+    </div>
+   <img src="iphone6.jpg">
+
+
+</body>
+</html>

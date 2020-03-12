@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    <div class="general-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 product">
+                    <img src="{{ get_product.image.url }}" class="img-fluid">
+                </div>
+                <div class="col-lg-6 product">
+                    <h1>{{ get_product.name }}</h1>
+                    <h5>Цена: {{ get_product.price }}$</h5>
+                    <p>{{ get_product.short_description }}</p>
+                    <p>{{ get_product.description }}</p>
+                    <div>
+                        <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">{% csrf_token %}
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="number" id="number">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-buy" id="submit_btn"
+                                    data-product_id='{{ get_product.id }}'
+                                    data-name='{{ get_product.name }}'
+                                    data-price='{{ get_product.price }}'
+                            >
+                                Купить
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block scripts %}
+          <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+        <script src="{% static 'js/scripts.js' %}"></script>
+    {% endblock %}
+
+{% endblock %}

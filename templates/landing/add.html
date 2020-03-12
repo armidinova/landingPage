@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+         <div class="form-group">
+            <label>Название товара
+            <input class="form-control" type="text" name="{{ form.name.name }}"></label>
+        </div>
+        <div class="form-group">
+            <label>Краткое описание
+            <input class="form-control" type="text" name="{{ form.short_description.name }}"></label>
+        </div>
+        <div class="form-group">
+            <label>Полное описание
+            <input class="form-control" type="text" name="{{ form.description.name }}"></label>
+        </div>
+        <div class="form-group">
+            <label>Цена
+            <input class="form-control" type="number" name="{{ form.price.name }}"></label>
+        </div>
+        <div class="form-group">
+            <label>Изображение
+            <input class="form-control" type="file" name="{{ form.image.name }}"></label>
+        </div>
+        <button class="btn btn-primary btn-brown" type="submit">Отправить</button>
+    </form>
+</body>
+</html>
