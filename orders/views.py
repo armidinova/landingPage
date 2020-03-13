@@ -26,6 +26,8 @@ def basket_adding(request):
     products_total_number = products_in_basket.count()
     return_dict["products_total_number"] = products_total_number
     return_dict["products"] = list()
+    number = list('number')
+
 
     for item in products_in_basket:
         product_dict = dict()
@@ -34,5 +36,6 @@ def basket_adding(request):
         product_dict["price_per_item"] = item.price_per_item
         product_dict["number"] = item.number
         return_dict["products"].append(product_dict)
+        print(number)
 
     return JsonResponse(return_dict)

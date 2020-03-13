@@ -1,7 +1,8 @@
-from django.urls import path, include
+from django.urls import path, include, re_path
 from . import views
 
 urlpatterns = [
-    path('basket_adding/', views.basket_adding, name='basket_adding'),
+    re_path(r'^basket_adding/$', views.basket_adding, name='basket_adding'),
+
 
 ]
