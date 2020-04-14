@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-2">
+                <br><br>
+                <h3 class="text-center">Товары в корзине</h3>
+
+                {{ request.session.basket.products }}
+                <form>
+                    <table class="table text-center">
+                        <thead>
+                        <th>Название товара</th>
+                        <th>Кол-во товара</th>
+                        <th>Цена за единицу</th>
+                        <th>Общая цена</th>
+                        </thead>
+                        <tbody>
+                        {% for product_in_basket in products_in_basket %}
+                            <tr>
+                                <td>
+                                    {{ product_in_basket.product.name }}
+                                </td>
+                                <td>
+                                    {{ product_in_basket.number }}
+                                </td>
+                                <td>
+                                    {{ product_in_basket.price_per_item }}
+                                </td>
+                                <td>
+                                <span class="total-product-in-basket-amount">
+                                    {{ product_in_basket.total_price }}
+                                </span>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+                    <div class="text-right">
+                        <b>Сумма заказа: <span id="total_order_amount">345</span></b>
+                    </div>
+                    <br>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary btn-lg">Заказать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
