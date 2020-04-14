@@ -32,7 +32,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li>
                 <div class="basket-container">
-                    <a href="">Корзина <span id="basket_total_amount"></span><span id="basket_total_number">
+                    <a href="{% url 'checkout' %}">Корзина <span id="basket_total_amount"></span><span id="basket_total_number">
                         {% if products_total_number %}
                             ({{ products_total_number }})
                         {% else %}

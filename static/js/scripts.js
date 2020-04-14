@@ -73,9 +73,21 @@ $(document).ready(function () {
     // });
     $(document).on('click', '.delete-item', function (e) {
         e.preventDefault();
-        product_id = $(this).data("product_id")
+        product_id = $(this).data("product_id");
         number = 0;
         basketUpdating(product_id, number, is_delete = true)
     });
+
+    function calculatingBasketAmount() {
+        console.log("calculatingBasketAmount");
+        var total_order_amount = 0;
+        $('.total-product-in-basket-amount').each(function () {
+            total_order_amount += parseInt($(this).text());
+        });
+        console.log(total_order_amount);
+        $('#total_order_amount').text(total_order_amount);
+    };
+    console.log("123");
+    calculatingBasketAmount();
 
 });
